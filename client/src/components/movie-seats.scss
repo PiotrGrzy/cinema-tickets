@@ -1,0 +1,46 @@
+.movies-seats {
+  padding: 4rem;
+  max-width: 90rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.screen {
+  background: rgb(17, 17, 17);
+  height: 3rem;
+  width: 80%;
+  margin: 0 auto;
+  border: 1px solid grey;
+  color: grey;
+  text-align: center;
+  line-height: 3rem;
+  font-size: 1.8rem;
+}
+
+.legend {
+  display: flex;
+  & span {
+    display: inline-block;
+  }
+  justify-content: center;
+
+  & > * {
+    margin: 0 2rem;
+  }
+}
+
+.box {
+  height: 2rem;
+  width: 2rem;
+  border: 2px solid #ffffff;
+  &--green {
+    background-color: #3ebd60;
+  }
+  &--red {
+    background-color: #bd4b3e;
+  }
+}
