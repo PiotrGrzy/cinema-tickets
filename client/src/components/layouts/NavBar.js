@@ -8,7 +8,7 @@ const Navbar = () => {
       <span className="navbar__logo">Cinema-Tickets</span>
       <ul className="navbar__menu">
         <li className="navbat__menu-item">
-          <Link to="/">Movies</Link>
+          <Link to="/movies">Movies</Link>
         </li>
         <li className="navbar__menu-item">
           <Link to="/login">Login</Link>

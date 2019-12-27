@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import Seat from "./Seat";
-import "./movie-seats.scss";
+import Seat from './Seat';
+import './movie-seats.scss';
 
 class MovieSeats extends Component {
   state = {
@@ -10,20 +10,20 @@ class MovieSeats extends Component {
   };
 
   onSeatClick = e => {
-    const clickedSeat = e.target.closest(".seat");
+    const clickedSeat = e.target.closest('.seat');
     const clickedSeatNumber = clickedSeat.firstChild.innerText * 1;
 
     if (clickedSeat) {
       if (this.state.marked.includes(clickedSeatNumber)) {
         // unmark seat
-        clickedSeat.style.backgroundColor = "#3ebd60";
+        clickedSeat.style.backgroundColor = '#3ebd60';
         const marked = this.state.marked.filter(
           item => item !== clickedSeatNumber
         );
         this.setState({ marked: marked });
       } else {
         // mark seat
-        clickedSeat.style.backgroundColor = "#0394fc";
+        clickedSeat.style.backgroundColor = '#0394fc';
         this.setState({
           marked: [...this.state.marked, clickedSeatNumber]
         });
@@ -34,7 +34,21 @@ class MovieSeats extends Component {
   bookTickets = () => {
     if (this.state.marked.length > 0) {
       // send marked seats for reservation
-      console.log("Book tickets..........");
+      const updatedMovie = JSON.parse(JSON.stringify(this.props.movie));
+      console.log(this.props.movie);
+      const bookSeat = seatNr => {
+        const seat = updatedMovie.seats.find(seat => seat.id === seatNr);
+        seat.available = false;
+      };
+      this.state.marked.forEach(mark => bookSeat(mark));
+      console.log(updatedMovie);
+
+      const body = {
+        movieId: this.props.movie.id,
+        seats: updatedMovie.seats
+      };
+
+      console.log('Book tickets....', body);
     }
   };
 
