@@ -3,10 +3,13 @@ export default (state = [], action) => {
     case 'FETCH_MOVIES':
       return action.payload;
     case 'BOOK_SEATS':
-      console.log(state);
-      const movie = state.find(movie => movie.id === action.payload.movieId);
-      movie.seats = action.payload.seats;
-      return { ...state, movie };
+      const updatedState = state.map(item =>
+        item.id === action.payload.movieId
+          ? { ...item, seats: action.payload.updatedSeats }
+          : item
+      );
+
+      return updatedState;
     default:
       return state;
   }

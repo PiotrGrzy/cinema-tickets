@@ -11,15 +11,22 @@ export const fetchMovies = () => async dispatch => {
 //     return body;
 //   };
 
-export const bookTickets = ({ movieId, updatedSeats }) => async dispatch => {
-  const response = await fetch(`/api/movies/${movieId}`, {
-    method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json'
-      // 'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    body: JSON.stringify(updatedSeats)
-  });
-  const body = await response.json();
-  dispatch({ type: 'BOOK_SEATS', payload: { movieId, updatedSeats } });
+export const bookTickets = (movieId, updatedSeats) => {
+  // const response = await fetch(`/api/movies/${movieId}`, {
+  //   method: 'PUT',
+  //   headers: {
+  //     'Content-Type': 'application/json'
+  //     // 'Content-Type': 'application/x-www-form-urlencoded',
+  //   },
+  //   body: JSON.stringify(updatedSeats)
+  // });
+  // const body = await response.json();
+  // dispatch({ type: 'BOOK_SEATS', payload: { movieId, updatedSeats } });
+  return {
+    type: 'BOOK_SEATS',
+    payload: {
+      movieId,
+      updatedSeats
+    }
+  };
 };

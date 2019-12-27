@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import { bookTickets } from '../actions';
 import Seat from './Seat';
 import './movie-seats.scss';
 
@@ -34,21 +34,17 @@ class MovieSeats extends Component {
   bookTickets = () => {
     if (this.state.marked.length > 0) {
       // send marked seats for reservation
-      const updatedMovie = JSON.parse(JSON.stringify(this.props.movie));
-      console.log(this.props.movie);
+      const { movie } = this.props;
       const bookSeat = seatNr => {
-        const seat = updatedMovie.seats.find(seat => seat.id === seatNr);
+        const seat = movie.seats.find(seat => seat.id === seatNr);
         seat.available = false;
       };
-      this.state.marked.forEach(mark => bookSeat(mark));
-      console.log(updatedMovie);
-
+      this.state.marked.forEach(seatNumber => bookSeat(seatNumber));
+      this.props.bookTickets(movie.id, movie.seats);
       const body = {
         movieId: this.props.movie.id,
-        seats: updatedMovie.seats
+        seats: movie.seats
       };
-
-      console.log('Book tickets....', body);
     }
   };
 
@@ -95,4 +91,4 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-export default connect(mapStateToProps)(MovieSeats);
+export default connect(mapStateToProps, { bookTickets })(MovieSeats);
