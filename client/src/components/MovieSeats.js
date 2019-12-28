@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { bookTickets } from '../actions';
 import Seat from './Seat';
 import './movie-seats.scss';
@@ -67,9 +68,7 @@ class MovieSeats extends Component {
             />
           ))}
         </div>
-        <button onClick={this.bookTickets} className="book-btn">
-          Book tickets
-        </button>
+
         <div className="legend">
           <div>
             <span className="box box--green"></span>
@@ -79,6 +78,12 @@ class MovieSeats extends Component {
             <span className="box box--red"></span>
             <span>- already booked</span>
           </div>
+        </div>
+        <button onClick={this.bookTickets} className="book-btn">
+          Book tickets
+        </button>
+        <div className="movies-seats__link">
+          <Link to="/movies">Back to Movie List</Link>
         </div>
       </>
     );

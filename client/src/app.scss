@@ -1,3 +1,5 @@
+$color-main: #556b2f;
+
 *,
 *::before,
 *::after {
@@ -13,5 +15,5 @@ html {
 
 .main {
   background-color: grey;
-  min-height: 80vh;
+  min-height: 90vh;
 }

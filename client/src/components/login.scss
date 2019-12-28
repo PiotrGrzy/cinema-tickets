@@ -3,15 +3,33 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.2);
+
   &__form {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.6rem;
     display: flex;
     flex-direction: column;
-    border: 3px solid darkolivegreen;
+    border: 3px solid #556b2f;
     background-color: #ffffff;
     padding: 4rem;
   }
 
+  & input {
+    padding: 0.5rem;
+    font-size: inherit;
+    font-family: inherit;
+    margin: 2rem 0;
+    border: 1px solid #556b2f;
+  }
+
   &__btn {
     margin: 1rem 0;
+    padding: 1rem;
+    background-color: #556b2f;
+    color: #ffffff;
+    border: none;
+    font-family: inherit;
+    font-size: 1.4rem;
   }
 }

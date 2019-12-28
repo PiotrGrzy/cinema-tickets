@@ -1,11 +1,13 @@
 const movies = [
   {
-    title: "Jumanji: Następny Poziom",
+    title: 'Jumanji: Następny Poziom',
     id: 1,
     time: 120,
+    imageURL:
+      'https://media.multikino.pl/thumbnails/50/rc/MzkwNzZG/eyJ0aHVtYm5haWwiOnsic2l6ZSI6WyIxMDAwMCIsIjEwMDAwIl0sIm1vZGUiOiJpbnNldCJ9fQ==/uploads/images/films_and_events/jumanji-nastepny-poziom-pl_df2da630d0.jpg',
     description:
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est.",
-    tags: ["comedy", "adventure"],
+      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est.',
+    tags: ['comedy', 'adventure'],
     seats: [
       { id: 1, available: true },
       { id: 2, available: true },
@@ -74,12 +76,13 @@ const movies = [
     ]
   },
   {
-    title: "Czarownica 2",
+    title: 'Czarownica 2',
     id: 2,
     time: 130,
+    imageURL: 'https://ssl-gfx.filmweb.pl/po/71/40/747140/7902554.3.jpg',
     description:
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est.",
-    tags: ["fantasy", "adventure", "family"],
+      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est.',
+    tags: ['fantasy', 'adventure', 'family'],
     seats: [
       { id: 1, available: true },
       { id: 2, available: true },
@@ -148,12 +151,14 @@ const movies = [
     ]
   },
   {
-    title: "Joker",
+    title: 'Joker',
     id: 3,
     time: 101,
+    imageURL:
+      'https://images-na.ssl-images-amazon.com/images/I/71YrVzXizzL._AC_SY679_.jpg',
     description:
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est.",
-    tags: ["drama", "sci-fic"],
+      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est.',
+    tags: ['drama', 'sci-fic'],
     seats: [
       { id: 1, available: true },
       { id: 2, available: true },
@@ -222,12 +227,13 @@ const movies = [
     ]
   },
   {
-    title: "Kod Dedala",
+    title: 'Kod Dedala',
     id: 4,
     time: 95,
+    imageURL: 'https://ssl-gfx.filmweb.pl/po/65/44/816544/7905609.3.jpg',
     description:
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est.",
-    tags: ["criminal"],
+      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est.',
+    tags: ['criminal'],
     seats: [
       { id: 1, available: true },
       { id: 2, available: true },
@@ -296,12 +302,13 @@ const movies = [
     ]
   },
   {
-    title: "Kraina Lodu 2",
+    title: 'Kraina Lodu 2',
     id: 5,
     time: 170,
+    imageURL: 'https://ssl-gfx.filmweb.pl/po/67/23/736723/7902555.3.jpg',
     description:
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est.",
-    tags: ["animation", "family"],
+      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est.',
+    tags: ['animation', 'family'],
     seats: [
       { id: 1, available: true },
       { id: 2, available: true },

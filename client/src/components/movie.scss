@@ -1,5 +1,57 @@
 .movie {
+  display: flex;
   padding: 1rem;
   max-width: 60rem;
-  margin: 0 auto;
+  margin: 1rem auto;
+  background-color: rgb(250, 250, 250);
+  box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.2);
+
+  &__img-box {
+    flex: 1;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__info {
+    flex: 2;
+    padding: 2rem;
+  }
+
+  &__title {
+    font-size: 2.2rem;
+    color: #556b2f;
+    margin-bottom: 1rem;
+  }
+  &__time,
+  &__tags {
+    display: inline-block;
+    margin-right: 1rem;
+    font-size: 1.6rem;
+    color: blueviolet;
+  }
+  &__tags {
+    color: #556b2f;
+    border-radius: 3px;
+  }
+
+  &__description {
+    font-size: 1.2rem;
+    margin: 1rem 0;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.4rem;
+    background-color: #556b2f;
+    padding: 1rem;
+    display: block;
+    margin-left: auto;
+    width: 10rem;
+    border-radius: 5px;
+  }
 }
