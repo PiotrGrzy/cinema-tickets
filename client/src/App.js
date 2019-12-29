@@ -1,17 +1,17 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-import { fetchMovies } from "./actions";
-import NavBar from "./components/layouts/NavBar";
-import Footer from "./components/layouts/Footer";
-import Home from "./components/layouts/Home";
-import Login from "./components/Login";
-import Signup from "./components/SignUp";
-import MoviesList from "./components/MoviesList";
-import MovieSeats from "./components/MovieSeats";
+import { fetchMovies } from './actions';
+import NavBar from './components/layouts/NavBar';
+import Footer from './components/layouts/Footer';
+import Home from './components/layouts/Home';
+import Login from './components/Login';
+import Signup from './components/SignUp';
+import MoviesList from './components/MoviesList';
+import MovieSeats from './components/MovieSeats';
 
-import "./app.scss";
+import './app.scss';
 
 class App extends Component {
   componentDidMount() {
