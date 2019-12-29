@@ -1,4 +1,5 @@
 import { SIGN_IN, SIGN_OUT } from "./types";
+import movies from "../apis/movies";
 export const fetchMovies = () => async dispatch => {
   const response = await fetch("/api/movies");
   const body = await response.json();
@@ -12,24 +13,36 @@ export const fetchMovies = () => async dispatch => {
 //     return body;
 //   };
 
-export const bookTickets = (movieId, updatedSeats) => {
-  // const response = await fetch(`/api/movies/${movieId}`, {
-  //   method: 'PUT',
-  //   headers: {
-  //     'Content-Type': 'application/json'
-  //     // 'Content-Type': 'application/x-www-form-urlencoded',
-  //   },
-  //   body: JSON.stringify(updatedSeats)
-  // });
-  // const body = await response.json();
-  // dispatch({ type: 'BOOK_SEATS', payload: { movieId, updatedSeats } });
-  return {
-    type: "BOOK_SEATS",
-    payload: {
-      movieId,
-      updatedSeats
-    }
-  };
+// export const bookTickets = (movieId, updatedSeats) => {
+//   // const response = await fetch(`/api/movies/${movieId}`, {
+//   //   method: 'PUT',
+//   //   headers: {
+//   //     'Content-Type': 'application/json'
+//   //     // 'Content-Type': 'application/x-www-form-urlencoded',
+//   //   },
+//   //   body: JSON.stringify(updatedSeats)
+//   // });
+//   // const body = await response.json();
+//   // dispatch({ type: 'BOOK_SEATS', payload: { movieId, updatedSeats } });
+//   return {
+//     type: "BOOK_SEATS",
+//     payload: {
+//       movieId,
+//       updatedSeats
+//     }
+//   };
+// };
+
+export const bookTickets = (movieId, updatedSeats) => async (
+  dispatch,
+  getState
+) => {
+  const { userId } = getState().auth;
+  const response = await movies.put(`/movies/${movieId}`, {
+    userId,
+    updatedSeats
+  });
+  dispatch({ type: "BOOK_SEATS", payload: response.data });
 };
 
 export const signIn = userId => {
