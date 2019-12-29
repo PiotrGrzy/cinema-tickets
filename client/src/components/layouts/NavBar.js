@@ -1,6 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './navbar.scss';
+import React from "react";
+import { Link } from "react-router-dom";
+import GoogleAuth from "../../GoogleAuth";
+import "./navbar.scss";
 
 const Navbar = () => {
   return (
@@ -17,6 +18,7 @@ const Navbar = () => {
           <Link to="/signup">Signup</Link>
         </li>
       </ul>
+      <GoogleAuth />
     </nav>
   );
 };

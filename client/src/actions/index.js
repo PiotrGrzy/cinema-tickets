@@ -1,8 +1,9 @@
+import { SIGN_IN, SIGN_OUT } from "./types";
 export const fetchMovies = () => async dispatch => {
-  const response = await fetch('/api/movies');
+  const response = await fetch("/api/movies");
   const body = await response.json();
   console.log(body.results);
-  dispatch({ type: 'FETCH_MOVIES', payload: body.results });
+  dispatch({ type: "FETCH_MOVIES", payload: body.results });
 };
 
 // getMovies = async () => {
@@ -23,10 +24,23 @@ export const bookTickets = (movieId, updatedSeats) => {
   // const body = await response.json();
   // dispatch({ type: 'BOOK_SEATS', payload: { movieId, updatedSeats } });
   return {
-    type: 'BOOK_SEATS',
+    type: "BOOK_SEATS",
     payload: {
       movieId,
       updatedSeats
     }
+  };
+};
+
+export const signIn = userId => {
+  return {
+    type: SIGN_IN,
+    payload: userId
+  };
+};
+
+export const signOut = () => {
+  return {
+    type: SIGN_OUT
   };
 };
