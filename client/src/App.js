@@ -14,9 +14,9 @@ import MovieSeats from "./components/MovieSeats";
 import "./app.scss";
 
 class App extends Component {
-  // componentDidMount() {
-  //   this.props.fetchMovies().catch(err => console.log(err));
-  // }
+  componentDidMount() {
+    this.props.fetchMovies().catch(err => console.log(err));
+  }
 
   // mainComp = () => {
   //   return (
