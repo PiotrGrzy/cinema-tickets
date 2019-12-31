@@ -41,11 +41,11 @@ class MovieSeats extends Component {
         seat.available = false;
       };
       this.state.marked.forEach(seatNumber => bookSeat(seatNumber));
-      this.props.bookTickets(movie.id, movie.seats);
-      const body = {
-        movieId: this.props.movie.id,
-        seats: movie.seats
-      };
+      this.props.bookTickets(movie._id, movie.seats);
+      // const body = {
+      //   movieId: this.props.movie._id,
+      //   seats: movie.seats
+      // };
     }
   };
 
@@ -92,7 +92,7 @@ class MovieSeats extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    movie: state.movies.find(movie => movie.id === ownProps.match.params.id * 1)
+    movie: state.movies.find(movie => movie._id === ownProps.match.params.id)
   };
 };
 

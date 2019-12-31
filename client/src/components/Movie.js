@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './movie.scss';
 
 const Movie = ({ movie }) => {
-  const path = `/movies/${movie.id}`;
+  const path = `/movies/${movie._id}`;
   return (
     <li className="movie">
       <div className="movie__img-box">

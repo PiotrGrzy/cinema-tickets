@@ -39,6 +39,17 @@ app.get('/api/movies', async (req, res) => {
   }
 });
 
+// GET single movie
+app.get('/api/movies/:id', async (req, res) => {
+  console.log(req);
+  try {
+    const movie = await Movie.findById(req.params.id);
+    res.send({ results: movie });
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 // ADD new movie
 app.post('/api/movies', async (req, res) => {
   const { title, time, tags, description, seats, id } = req.body;
@@ -51,12 +62,26 @@ app.post('/api/movies', async (req, res) => {
       seats,
       id
     });
-
     const movie = await newMovie.save();
     res.json(movie);
   } catch (err) {
     console.log(err);
     res.status(500).send('Server error');
+  }
+});
+
+// UPGRADE movie seats
+app.put('/api/movies/:id', async (req, res) => {
+  try {
+    let movie = await Movie.findById(req.params.id);
+    if (!movie) return res.status(404).json({ msg: 'Movie not found' });
+
+    movie = await Movie.findByIdAndUpdate(req.params.id, {
+      seats: req.body.seats
+    });
+    res.send('Reservation of seats....succesfull');
+  } catch (err) {
+    console.log(err);
   }
 });
 
