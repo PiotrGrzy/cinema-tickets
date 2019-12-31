@@ -35,17 +35,17 @@ class MovieSeats extends Component {
   bookTickets = () => {
     if (this.state.marked.length > 0) {
       // send marked seats for reservation
-      const { movie } = this.props;
-      const bookSeat = seatNr => {
-        const seat = movie.seats.find(seat => seat.id === seatNr);
-        seat.available = false;
-      };
-      this.state.marked.forEach(seatNumber => bookSeat(seatNumber));
-      this.props.bookTickets(movie._id, movie.seats);
-      // const body = {
-      //   movieId: this.props.movie._id,
-      //   seats: movie.seats
-      // };
+      if (this.props.isSignedIn) {
+        const { movie } = this.props;
+        const bookSeat = seatNr => {
+          const seat = movie.seats.find(seat => seat.id === seatNr);
+          seat.available = false;
+        };
+        this.state.marked.forEach(seatNumber => bookSeat(seatNumber));
+        this.props.bookTickets(movie._id, movie.seats);
+      } else {
+        return alert('U must be signed in to book tickets');
+      }
     }
   };
 
@@ -92,7 +92,8 @@ class MovieSeats extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    movie: state.movies.find(movie => movie._id === ownProps.match.params.id)
+    movie: state.movies.find(movie => movie._id === ownProps.match.params.id),
+    isSignedIn: state.auth.isSignedIn
   };
 };
 

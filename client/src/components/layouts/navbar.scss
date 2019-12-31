@@ -17,5 +17,10 @@
     color: inherit;
     display: block;
     margin: 0 1rem;
+    transition: all 0.2s;
+  }
+
+  & a:hover {
+    transform: scale(1.2);
   }
 }
