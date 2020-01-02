@@ -86,12 +86,14 @@ app.put('/api/movies/:id', async (req, res) => {
   }
 });
 
-app.post('/send', (req, res, next) => {
-  const email = req.body.email;
-  const movie = req.body.movie;
-  const message = req.body.messageHtml;
-
-  mailer.sendMail(email, movie, message);
+app.post('/send', async (req, res) => {
+  const { email, movie, messageHtml} = req.body;
+  try {
+    mailer.sendMail(email, movie, messageHtml);
+    res.send('Email sent succesfully');
+  } catch(err) {
+    console.log(err);
+  }
 });
 
 if (process.env.NODE_ENV === 'production') {
