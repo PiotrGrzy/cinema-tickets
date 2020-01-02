@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const mongoose = require('mongoose');
 const Movie = require('./models/Movie');
+const mailer = require('./mailer');
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -83,6 +84,14 @@ app.put('/api/movies/:id', async (req, res) => {
   } catch (err) {
     console.log(err);
   }
+});
+
+app.post('/send', (req, res, next) => {
+  const email = req.body.email;
+  const movie = req.body.movie;
+  const message = req.body.messageHtml;
+
+  mailer.sendMail(email, movie, message);
 });
 
 if (process.env.NODE_ENV === 'production') {
