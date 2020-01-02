@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import { bookTickets } from '../actions';
 import Seat from './Seat';
+
 import './movie-seats.scss';
 
 class MovieSeats extends Component {
@@ -43,6 +45,15 @@ class MovieSeats extends Component {
         };
         this.state.marked.forEach(seatNumber => bookSeat(seatNumber));
         this.props.bookTickets(movie._id, movie.seats);
+        axios({
+          method: 'POST',
+          url: 'http://localhost:3000/send',
+          data: {
+            email: this.props.email,
+            movie: this.props.movie.title,
+            messageHtml: this.state.marked
+          }
+        });
       } else {
         return alert('U must be signed in to book tickets');
       }
@@ -93,7 +104,8 @@ class MovieSeats extends Component {
 const mapStateToProps = (state, ownProps) => {
   return {
     movie: state.movies.find(movie => movie._id === ownProps.match.params.id),
-    isSignedIn: state.auth.isSignedIn
+    isSignedIn: state.auth.isSignedIn,
+    email: state.auth.userEmail
   };
 };
 

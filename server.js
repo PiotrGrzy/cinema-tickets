@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const mongoose = require('mongoose');
 const Movie = require('./models/Movie');
+const mailer = require('./mailer');
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -79,10 +80,17 @@ app.put('/api/movies/:id', async (req, res) => {
     movie = await Movie.findByIdAndUpdate(req.params.id, {
       seats: req.body.seats
     });
-    res.send('Reservation of seats....succesfull');
+    res.send('Reservation succesfull');
   } catch (err) {
     console.log(err);
   }
+});
+
+// Sens Confirm Email
+app.post('/send', (req, res, next) => {
+  const { email, movie, messageHtml } = req.body;
+
+  mailer.sendMail(email, movie, messageHtml);
 });
 
 if (process.env.NODE_ENV === 'production') {
