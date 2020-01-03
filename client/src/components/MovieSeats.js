@@ -10,7 +10,7 @@ const axios = require('axios');
 
 class MovieSeats extends Component {
   state = {
-    marked: []
+    marked: [],
   };
 
   onSeatClick = e => {
@@ -29,7 +29,7 @@ class MovieSeats extends Component {
         // mark seat
         clickedSeat.style.backgroundColor = '#0394fc';
         this.setState({
-          marked: [...this.state.marked, clickedSeatNumber]
+          marked: [...this.state.marked, clickedSeatNumber],
         });
       }
     }
@@ -52,8 +52,8 @@ class MovieSeats extends Component {
           data: {
             email: this.props.email,
             movie: this.props.movie.title,
-            messageHtml: this.state.marked
-          }
+            messageHtml: this.state.marked,
+          },
         });
       } else {
         return alert('U must be signed in to book tickets');
@@ -106,7 +106,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     movie: state.movies.find(movie => movie._id === ownProps.match.params.id),
     isSignedIn: state.auth.isSignedIn,
-    email: state.auth.userEmail
+    email: state.auth.userEmail,
   };
 };
 

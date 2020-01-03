@@ -15,7 +15,7 @@ export const bookTickets = (movieId, updatedSeats) => async (
   const { userEmail } = getState().auth;
   console.log(userEmail);
   const response = await movies.put(`/movies/${movieId}`, {
-    seats: updatedSeats
+    seats: updatedSeats,
   });
   if (response.status === 200) {
     alert(
@@ -26,7 +26,7 @@ export const bookTickets = (movieId, updatedSeats) => async (
 
   dispatch({
     type: BOOK_SEATS,
-    payload: { movieId, updatedSeats }
+    payload: { movieId, updatedSeats },
   });
 };
 
@@ -35,13 +35,13 @@ export const signIn = (userId, email) => {
     type: SIGN_IN,
     payload: {
       userId,
-      email
-    }
+      email,
+    },
   };
 };
 
 export const signOut = () => {
   return {
-    type: SIGN_OUT
+    type: SIGN_OUT,
   };
 };

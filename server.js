@@ -21,7 +21,7 @@ mongoose
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
   })
   .then(() => {
     console.log('DB connection succesfull!');
@@ -63,7 +63,7 @@ app.post('/api/movies', async (req, res) => {
       tags,
       description,
       seats,
-      id
+      id,
     });
     const movie = await newMovie.save();
     res.json(movie);
@@ -80,7 +80,7 @@ app.put('/api/movies/:id', async (req, res) => {
     if (!movie) return res.status(404).json({ msg: 'Movie not found' });
 
     movie = await Movie.findByIdAndUpdate(req.params.id, {
-      seats: req.body.seats
+      seats: req.body.seats,
     });
     res.send('Reservation succesfull');
   } catch (err) {
