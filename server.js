@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
+const cors = require('cors');
 const mongoose = require('mongoose');
 const Movie = require('./models/Movie');
 const mailer = require('./mailer');
@@ -10,6 +11,7 @@ const port = process.env.PORT || 5000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
 
 const DB =
   'mongodb+srv://Piotr:abc123456@cluster0-zu8mn.mongodb.net/movies?retryWrites=true&w=majority';
@@ -87,11 +89,11 @@ app.put('/api/movies/:id', async (req, res) => {
 });
 
 app.post('/send', async (req, res) => {
-  const { email, movie, messageHtml} = req.body;
+  const { email, movie, messageHtml } = req.body;
   try {
     mailer.sendMail(email, movie, messageHtml);
     res.send('Email sent succesfully');
-  } catch(err) {
+  } catch (err) {
     console.log(err);
   }
 });
