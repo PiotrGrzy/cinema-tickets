@@ -6,6 +6,7 @@ import { bookTickets } from '../actions';
 import Seat from './Seat';
 
 import './movie-seats.scss';
+const axios = require('axios');
 
 class MovieSeats extends Component {
   state = {
