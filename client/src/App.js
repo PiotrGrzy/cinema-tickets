@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
-
 import { fetchMovies } from './actions';
 import NavBar from './components/layouts/NavBar';
 import Footer from './components/layouts/Footer';
 import Home from './components/layouts/Home';
-import Login from './components/Login';
-import Signup from './components/SignUp';
 import MoviesList from './components/MoviesList';
 import MovieSeats from './components/MovieSeats';
 
@@ -26,8 +23,6 @@ class App extends Component {
           <main className="main">
             <Route path="/" exact component={Home} />
             <Route path="/movies" exact component={MoviesList} />
-            <Route path="/login" exact component={Login} />
-            <Route path="/signup" exact component={Signup} />
             <Route path="/movies/:id" exact component={MovieSeats} />
           </main>
           {<Footer />}

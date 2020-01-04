@@ -10,8 +10,8 @@ const Home = () => {
         Welcome Cinema-Ticket: React - Node.js application
       </h1>
       <p className="home__text">
-        This application lets you browse available movies and book a tickets
-        with mail confirmation
+        This application lets you browse available movies and book tickets with
+        e-mail confirmation.
       </p>
       <Link className="home__link" to="/movies">
         Get Started

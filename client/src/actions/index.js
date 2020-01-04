@@ -4,7 +4,7 @@ import movies from '../apis/movies';
 export const fetchMovies = () => async dispatch => {
   const response = await fetch('/api/movies');
   const body = await response.json();
-  console.log(body.results);
+
   dispatch({ type: FETCH_MOVIES, payload: body.results });
 };
 
@@ -13,7 +13,7 @@ export const bookTickets = (movieId, updatedSeats) => async (
   getState
 ) => {
   const { userEmail } = getState().auth;
-  console.log(userEmail);
+
   const response = await movies.put(`/movies/${movieId}`, {
     seats: updatedSeats,
   });

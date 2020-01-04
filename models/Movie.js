@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-var SeatSchema = mongoose.Schema({
+const SeatSchema = mongoose.Schema({
   id: Number,
-  available: Boolean
+  available: Boolean,
 });
 
 const MovieSchema = mongoose.Schema(
@@ -12,21 +12,11 @@ const MovieSchema = mongoose.Schema(
     imageURL: String,
     description: String,
     tags: [],
-    seats: [SeatSchema]
+    seats: [SeatSchema],
   },
   {
-    collection: 'movie-list'
+    collection: 'movie-list',
   }
 );
 
 module.exports = mongoose.model('Movie', MovieSchema, 'movie-list');
-
-// var userSchema = new mongoose.Schema({
-//   name: String,
-//   email: {
-//     type: String, unique:true
-//   }
-// },
-// {
-//   collection: 'myuserlist'
-// });
