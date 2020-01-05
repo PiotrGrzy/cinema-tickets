@@ -5,6 +5,10 @@
   align-items: center;
   justify-content: center;
 
+  &__heading {
+    text-align: center;
+  }
+
   &__link {
     text-decoration: none;
     color: #ffffff;

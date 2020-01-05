@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <div className="home">
       <h1 className="home__heading">
-        Welcome Cinema-Ticket: React - Node.js application
+        Welcome to <strong>Cinema-Tickets: React - Node.js application</strong>
       </h1>
       <p className="home__text">
         This application lets you browse available movies and book tickets with
