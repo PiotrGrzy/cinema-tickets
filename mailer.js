@@ -5,8 +5,8 @@ module.exports = {
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: 'react.project2020@gmail.com',
-        pass: 'Haslo123',
+        user: 'cinema.tickets.mailer@gmail.com',
+        pass: 'cinemaabc123',
       },
     });
 
