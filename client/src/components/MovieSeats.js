@@ -12,7 +12,7 @@ class MovieSeats extends Component {
     marked: [],
   };
 
-  onSeatClick = (e) => {
+  handleSeatClick = (e) => {
     const clickedSeat = e.target.closest('.seat');
     const clickedSeatNumber = clickedSeat.firstChild.innerText * 1;
 
@@ -34,7 +34,7 @@ class MovieSeats extends Component {
     }
   };
 
-  bookTickets = () => {
+  handleBookTickets = () => {
     if (this.state.marked.length > 0) {
       // send marked seats for reservation
       if (this.props.isSignedIn) {
@@ -44,7 +44,9 @@ class MovieSeats extends Component {
           seat.available = false;
         };
         this.state.marked.forEach((seatNumber) => bookSeat(seatNumber));
+
         this.props.bookTickets(movie._id, movie.seats);
+
         axios({
           method: 'POST',
           url: 'https://cinema-tickets.herokuapp.com/api/send',
@@ -72,7 +74,7 @@ class MovieSeats extends Component {
         <div className="movies-seats">
           {seats.map((seat) => (
             <Seat
-              click={seat.available ? this.onSeatClick : null}
+              click={seat.available ? this.handleSeatClick : null}
               key={seat.id}
               number={seat.id}
               available={seat.available}
@@ -90,7 +92,7 @@ class MovieSeats extends Component {
             <span>- already booked</span>
           </div>
         </div>
-        <button onClick={this.bookTickets} className="book-btn">
+        <button onClick={this.handleBookTickets} className="book-btn">
           Book tickets
         </button>
         <div className="movies-seats__link">

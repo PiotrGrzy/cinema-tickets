@@ -90,7 +90,7 @@ app.put('/api/movies/:id', async (req, res) => {
 
 // send confirmation email
 
-app.post('/send', async (req, res) => {
+app.post('/api/send', async (req, res) => {
   const { email, movie, messageHtml } = req.body;
   try {
     mailer.sendMail(email, movie, messageHtml);
