@@ -12,7 +12,7 @@ class MovieSeats extends Component {
     marked: [],
   };
 
-  onSeatClick = e => {
+  onSeatClick = (e) => {
     const clickedSeat = e.target.closest('.seat');
     const clickedSeatNumber = clickedSeat.firstChild.innerText * 1;
 
@@ -21,7 +21,7 @@ class MovieSeats extends Component {
         // unmark seat
         clickedSeat.style.backgroundColor = '#3ebd60';
         const marked = this.state.marked.filter(
-          item => item !== clickedSeatNumber
+          (item) => item !== clickedSeatNumber
         );
         this.setState({ marked: marked });
       } else {
@@ -39,15 +39,15 @@ class MovieSeats extends Component {
       // send marked seats for reservation
       if (this.props.isSignedIn) {
         const { movie } = this.props;
-        const bookSeat = seatNr => {
-          const seat = movie.seats.find(seat => seat.id === seatNr);
+        const bookSeat = (seatNr) => {
+          const seat = movie.seats.find((seat) => seat.id === seatNr);
           seat.available = false;
         };
-        this.state.marked.forEach(seatNumber => bookSeat(seatNumber));
+        this.state.marked.forEach((seatNumber) => bookSeat(seatNumber));
         this.props.bookTickets(movie._id, movie.seats);
         axios({
           method: 'POST',
-          url: 'http://localhost:3000/send',
+          url: 'https://cinema-tickets.herokuapp.com/api/send',
           data: {
             email: this.props.email,
             movie: this.props.movie.title,
@@ -70,7 +70,7 @@ class MovieSeats extends Component {
       <>
         <div className="screen">SCREEN</div>
         <div className="movies-seats">
-          {seats.map(seat => (
+          {seats.map((seat) => (
             <Seat
               click={seat.available ? this.onSeatClick : null}
               key={seat.id}
@@ -103,7 +103,7 @@ class MovieSeats extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    movie: state.movies.find(movie => movie._id === ownProps.match.params.id),
+    movie: state.movies.find((movie) => movie._id === ownProps.match.params.id),
     isSignedIn: state.auth.isSignedIn,
     email: state.auth.userEmail,
   };

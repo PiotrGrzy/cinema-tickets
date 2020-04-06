@@ -88,6 +88,8 @@ app.put('/api/movies/:id', async (req, res) => {
   }
 });
 
+// send confirmation email
+
 app.post('/send', async (req, res) => {
   const { email, movie, messageHtml } = req.body;
   try {
@@ -103,7 +105,7 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, 'client/build')));
 
   // Handle React routing, return all requests to React app
-  app.get('*', function(req, res) {
+  app.get('*', function (req, res) {
     res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
   });
 }
